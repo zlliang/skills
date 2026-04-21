@@ -130,3 +130,4 @@ EOF
 ## References
 
 - [Conventional Commits 1.0.0](references/conventional-commits.md)
+- Forked from [github/awesome-copilot/git-commit](https://github.com/github/awesome-copilot/blob/main/skills/git-commit/SKILL.md)
