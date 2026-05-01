@@ -7,3 +7,4 @@ A collection of custom [agent skills](https://docs.anthropic.com/en/docs/claude-
 | Skill | Description |
 | --- | --- |
 | [git-commit](skills/git-commit/SKILL.md) | Create Git commits with Conventional Commits analysis, safe staging, and concise message generation. |
+| [issue-pr-writing](skills/issue-pr-writing/SKILL.md) | Write concise issue, pull request, and merge request titles, bodies, and comments. |
