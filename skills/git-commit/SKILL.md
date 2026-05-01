@@ -1,6 +1,6 @@
 ---
 name: git-commit
-description: 'Execute git commit with conventional commit message analysis, intelligent staging, and message generation. Use when user asks to commit changes, create a git commit. Supports: (1) Auto-detecting type and scope from changes, (2) Generating conventional commit messages from diff, (3) Interactive commit with optional type/scope/description overrides, (4) Intelligent file staging for logical grouping.'
+description: Create Git commits with Conventional Commits analysis, safe staging, and concise message generation. Use when the user asks to commit changes or create a git commit.
 license: MIT
 ---
 
@@ -54,20 +54,31 @@ BREAKING CHANGE: `extends` key behavior changed
 
 ## Workflow
 
-### 1. Analyze diff
+### 1. Inspect status
 
 ```bash
-# If files are staged, use staged diff
-git diff --staged
-
-# If nothing staged, use working tree diff
-git diff
-
-# Also check status
 git status --porcelain
 ```
 
-### 2. Stage files (if needed)
+Default behavior:
+
+- Prefer already staged changes when present.
+- If nothing is staged, stage only the coherent logical change.
+- Leave unrelated worktree changes untouched.
+
+### 2. Analyze diff
+
+```bash
+# If files are staged, use staged diff.
+git diff --staged
+
+# If nothing is staged, use working tree diff.
+git diff
+```
+
+When staged and unstaged changes coexist, commit only the staged changes by default. If the staged changes appear incomplete, inspect the unstaged diff and decide whether to stage closely related files or ask the user.
+
+### 3. Stage files (if needed)
 
 If nothing is staged or you want to group changes differently:
 
@@ -78,22 +89,23 @@ git add path/to/file1 path/to/file2
 # Stage by pattern
 git add *.test.*
 git add src/components/*
-
-# Interactive staging
-git add -p
 ```
 
 **Never commit secrets** (.env, credentials.json, private keys).
 
-### 3. Generate commit message
+### 4. Generate commit message
 
 Analyze the diff to determine:
 
 - **Type**: What kind of change is this?
 - **Scope**: What area/module is affected?
-- **Description**: One-line summary of what changed (present tense, imperative mood, <72 chars)
+- **Description**: One-line summary of what changed. (present tense, imperative mood, <72 chars)
 
-### 4. Execute commit
+Use the smallest accurate type and scope. Prefer short, single-line commits with no body. Add a body only when the commit is large or nuanced enough that it cannot be summarized clearly in one short sentence. Do not add an explanatory body just because extra context is available.
+
+Use breaking-change syntax only when the diff truly changes a public contract.
+
+### 5. Execute commit
 
 ```bash
 # Single line
@@ -112,20 +124,31 @@ EOF
 
 ## Best practices
 
-- One logical change per commit
-- Present tense: "add" not "added"
-- Imperative mood: "fix bug" not "fixes bug"
-- Reference issues: `Closes #123`, `Refs #456`
-    - If there is no body, append after the description instead: `feat: add login, closes #123`
-- Keep description under 72 characters
+- One logical change per commit.
+- Present tense: "add" not "added".
+- Imperative mood: "fix bug" not "fixes bug".
+- Keep description under 72 characters.
+- Reference issues with trailers such as `Closes #123` or `Refs #456` only when the diff or user request provides that context; If there is no body, append after the description instead: `feat: add login, closes #123`
 
 ## Git safety protocol
 
-- NEVER update git config
-- NEVER run destructive commands (--force, hard reset) without explicit request
-- NEVER skip hooks (--no-verify) unless user asks
-- NEVER force push to main/master
-- If commit fails due to hooks, fix and create NEW commit (don't amend)
+- Never update git config.
+- Never run destructive commands (--force, hard reset) without explicit request.
+- Never skip hooks (--no-verify) unless user asks.
+- Never force push to main/master.
+- If hooks fail before the commit is created, fix the issue and retry
+- If a commit was created and later validation fails, do not amend unless requested
+
+## Final verification
+
+After committing:
+
+```bash
+git status --short
+git log -1 --oneline
+```
+
+Report the new commit hash and subject. Mention any remaining unstaged or untracked changes.
 
 ## References
 
