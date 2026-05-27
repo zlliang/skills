@@ -1,6 +1,6 @@
 ---
 name: web-access
-description: Routes agents without built-in web search, web fetch, or browser tools to the right web access method. Use for public search/fetch, browser interaction, authenticated browsing, screenshots, web app testing, or Electron app control.
+description: Route agents to the right web access method only when built-in web access tools are unavailable or insufficient for the task. Use for public search/fetch, browser interaction, authenticated browsing, screenshots, web app testing, or Electron app control when built-in tools cannot handle the requirement.
 license: MIT
 ---
 
@@ -8,7 +8,7 @@ license: MIT
 
 ## Purpose
 
-Use this skill when an agent needs web access but does not have built-in web search, web fetch, or browser tools. Its job is to choose the access route, not to explain each tool in detail.
+Use this skill when an agent needs web access and built-in web access tools are unavailable or not capable of the given task. Its job is to choose the access route, not to explain each tool in detail.
 
 After choosing a route, load the dedicated skill for that tool.
 
@@ -16,23 +16,23 @@ After choosing a route, load the dedicated skill for that tool.
 
 | Need | Preferred approach |
 | --- | --- |
-| Search the public web | Exa MCP through `mcporter` |
-| Fetch, extract, or summarize a public page | Exa MCP through `mcporter` |
+| Search the public web | Exa MCP |
+| Fetch, extract, or summarize a public page | Exa MCP |
 | Read a known simple public URL, such as raw text, JSON, Markdown, or simple HTML | Direct shell fetch, such as `curl`; use Exa MCP if extraction is needed |
-| Interact with a website: click, type, navigate, submit forms, or inspect rendered state | `agent-browser` |
-| Use existing credentials, cookies, sessions, screenshots, visual inspection, or JavaScript-heavy pages | `agent-browser` |
-| Test a web app, reproduce browser bugs, or control an Electron app | `agent-browser` |
-| Access private service data | Prefer a configured service-specific MCP if available; otherwise use `agent-browser` |
+| Interact with a website: click, type, navigate, submit forms, or inspect rendered state | agent-browser |
+| Use existing credentials, cookies, sessions, screenshots, visual inspection, or JavaScript-heavy pages | agent-browser |
+| Test a web app, reproduce browser bugs, or control an Electron app | agent-browser |
+| Access private service data | Prefer a configured service-specific MCP if available; otherwise use agent-browser |
 
 ## Minimal workflow
 
 1. Classify the task using the table above.
 2. Pick the lightest sufficient route:
    - Simple known public URL: direct shell fetch may be enough.
-   - Public search or page extraction: use Exa MCP through `mcporter`.
-   - Interaction, authentication, visual/rendered state, testing, or Electron control: use `agent-browser`.
+   - Public search or page extraction: use Exa MCP.
+   - Interaction, authentication, visual/rendered state, testing, or Electron control: use agent-browser.
 3. Load the dedicated skill for the selected route: `mcporter` or `agent-browser`.
-4. Verify important web-derived claims from fetched page content, not only search results.
+4. (Optional) Verify important web-derived claims from fetched page content, not only search results.
 
 ## Source quality
 
