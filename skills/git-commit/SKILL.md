@@ -6,8 +6,6 @@ license: MIT
 
 # Git Commit with Conventional Commits
 
-## Overview
-
 Create standardized, semantic git commits using the [Conventional Commits](https://www.conventionalcommits.org/) specification. Analyze the actual diff to determine appropriate type, scope, and message.
 
 ## Commit format
