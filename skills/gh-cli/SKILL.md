@@ -8,7 +8,7 @@ license: MIT
 
 Use `gh` as the first choice for GitHub work that can be done from the command line: repository inspection, issue and pull request management, actions runs, releases, gists, and authenticated GitHub API calls.
 
-For exact flags and current behavior, run `gh --help`, `gh <command> --help`, or read the official [GitHub CLI manual](https://cli.github.com/manual/).
+For exact flags and current behavior, run `gh help`, `gh <command> --help`, or read the official [GitHub CLI manual](https://cli.github.com/manual/).
 
 ## Operating principles
 
@@ -39,7 +39,7 @@ gh browse --no-browser
 gh config list
 ```
 
-For GitHub Enterprise or non-current repositories, use the relevant hostname and repository flags documented by `gh --help`.
+For GitHub Enterprise or non-current repositories, use the relevant hostname and repository flags documented by `gh help`.
 
 ## Common workflows
 
