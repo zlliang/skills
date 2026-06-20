@@ -1,6 +1,6 @@
 ---
 name: gh-cli
-description: Uses GitHub CLI (gh) for GitHub repositories, issues, pull requests, actions, releases, gists, and API calls. Use when a task requires GitHub operations from the command line.
+description: Use GitHub CLI (gh) for GitHub repositories, issues, pull requests, actions, releases, gists, and API calls. Use when a task requires GitHub operations from the command line.
 license: MIT
 ---
 
