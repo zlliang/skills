@@ -1,10 +1,10 @@
 ---
-name: issue-writing
+name: writing-issues-and-prs
 description: Write, edit, review, or improve concise issue, pull request, and merge request titles, bodies, and comments for GitHub, GitLab, and similar platforms.
 license: MIT
 ---
 
-# Issue and PR Writing
+# Writing Issues and PRs
 
 Write issue, pull request, and merge request titles, bodies, and comments for [GitHub](https://github.com/), [GitLab](https://gitlab.com/), and similar platforms. Keep the wording concise, accurate, calm, skeptical, and human. Prefer concrete context over boilerplate, and use platform-neutral wording unless the user or surrounding context calls for platform-specific terms.
 
