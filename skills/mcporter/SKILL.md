@@ -8,24 +8,46 @@ license: MIT
 
 [MCPorter](https://github.com/openclaw/mcporter) is a CLI for working with [MCP](https://modelcontextprotocol.io/) servers. Use it to discover configured servers, read their tool signatures, and call tools directly from the shell.
 
-The two commands that matter most are `list` (discover and inspect) and `call` (invoke). Always `list` before you `call` so arguments match the real schema.
+The command that matters most is `call` (invoke). Before calling, you must know each tool's schema. Live `list` is often slow, so prefer the cached tool signatures under `~/.mcporter/definitions/` — see the workflow below. Always read the schema before you `call` so arguments match.
 
 For exact flags, run `mcporter <command> --help`. MCPorter discovers servers from its config — the global config at `~/.mcporter/mcporter.json`, a project config at `./config/mcporter.json`, or an explicit `--config <path>` — plus editor imports (Cursor, Claude Code, Codex, etc.). Use `mcporter config list` or `mcporter list --verbose` to see where each server comes from.
 
 ## Workflow
 
 ```bash
-# 1. See configured servers and their health
-mcporter list
+# 1. Read the cached schema for the server you need (cat is just an example; use whatever file-read
+#    tool is most effective)
+cat ~/.mcporter/definitions/<server>.d.ts
 
-# 2. Read one server's tools as TypeScript-like signatures
-mcporter list <server>
+# 2. If the cache is missing/stale/incomplete, (re)generate it (see below)
+mcporter emit-ts <server> --out ~/.mcporter/definitions/<server>.d.ts
 
-# 3. Call a tool using the signature from step 2
+# 3. Pick a tool from the schema, then call it
 mcporter call '<server>.<tool>(arg: "value", count: 5)'
 ```
 
-## `list` — discover and inspect
+## Definitions cache
+
+Each `~/.mcporter/definitions/<server>.d.ts` holds one server's tools as TypeScript declarations — the same signature/doc-comment information `list` prints, but cached on disk and instant to read. **Read these files instead of running `mcporter list <server>` whenever possible.**
+
+Generate or refresh a cache file:
+
+```bash
+mcporter emit-ts <server> --out ~/.mcporter/definitions/<server>.d.ts
+mcporter emit-ts <server> --out ~/.mcporter/definitions/<server>.d.ts --include-optional   # include optional params
+```
+
+When to (re)generate:
+
+- **Missing** — no file for the server yet. Generate it.
+- **Stale** — each file starts with a `// Generated on <ISO timestamp>` header. If it is older than ~1 month, regenerate to refresh.
+- **Incomplete** — some servers return a varying tool count between runs (often auth/transport flakiness). If a cache looks short or a tool you expect is absent, regenerate a few times. If it stays incomplete, stop and hand the problem back to the user rather than guessing.
+
+To list which servers are configured (so you know what to cache), use `mcporter config list`.
+
+## `list` — live discovery (fallback)
+
+Use `list` when the cache cannot answer your question — e.g. to see all servers and their health, or to inspect a tool live. Note it can be slow.
 
 ```bash
 mcporter list                       # all servers, with live status
@@ -35,7 +57,7 @@ mcporter list <server> --json       # machine-readable, full tool metadata
 mcporter list <server> --all-parameters   # reveal hidden optional params
 ```
 
-Single-server output reads like a TypeScript header: a doc comment per tool, a `function name(...)` signature with required params first and optional ones marked `?`, plus an `Examples:` block written in the function-call syntax below. Optional params beyond the first few are hidden unless you pass `--all-parameters` or `--schema`.
+Single-server output reads like a TypeScript header: a doc comment per tool, a `function name(...)` signature with required params first and optional ones marked `?`, plus an `Examples:` block written in the function-call syntax below — the same shape as the cached `.d.ts`. Optional params beyond the first few are hidden unless you pass `--all-parameters` or `--schema`.
 
 ```ts
 function web_search_exa(query: string, numResults?: number);
@@ -85,4 +107,4 @@ Bare domains assume `https://`; plain `http://` needs `--allow-http`. Persist a 
 ## Notes
 
 - Pass secrets via environment variables, e.g. `LINEAR_API_KEY=… mcporter call 'linear.search_documentation(query: "automations")'`.
-- Other commands exist (`auth`, `config`, `resource`, `daemon`, `generate-cli`, `emit-ts`); run `mcporter --help` when you need them.
+- Other commands exist (`auth`, `config`, `resource`, `daemon`, `generate-cli`); run `mcporter --help` when you need them.
