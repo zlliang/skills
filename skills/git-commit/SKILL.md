@@ -126,7 +126,7 @@ EOF
 - Present tense: "add" not "added".
 - Imperative mood: "fix bug" not "fixes bug".
 - Keep description under 72 characters.
-- Reference issues with trailers such as `Closes #123` or `Refs #456` only when the diff or user request provides that context; If there is no body, append after the description instead: `feat: add login, closes #123`
+- Reference issues with trailers such as `Closes #123` or `Refs #456` only when the diff or user request provides that context. If there is no body, append after the description instead: `feat: add login, closes #123`.
 
 ## Git safety protocol
 

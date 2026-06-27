@@ -78,7 +78,7 @@ skill-name/
 ```
 
 - **scripts/** — when the agent would otherwise rewrite the same code each run, or when a step needs deterministic reliability. Reference with intent: "Run `scripts/validate.py` to check the frontmatter." Test scripts by actually running them.
-- **references/** — move detailed material here to keep SKILL.md lean. Reference each file from SKILL.md and say when to read it. Keep references one level deep; add a table of contents to files over ~100 lines.
+- **references/** — move detailed material here to keep SKILL.md lean. Reference each file from SKILL.md and say when to read it. Keep references one level deep.
 - **assets/** — resources copied or used in the output, not loaded into context.
 
 Do **not** add `README.md`, `CHANGELOG.md`, install guides, or notes about how the skill was made. A skill contains only what the agent needs to do the job.
