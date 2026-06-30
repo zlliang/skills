@@ -54,7 +54,7 @@ Either way keep it short and hyphenated, and avoid vague names like `helper`, `u
 
 This is the only text the agent sees when deciding to use the skill, so it carries all the "when to use" information; never put that in the body. Write it in third person, state **what** the skill does and the concrete **contexts/phrases** that should invoke it, and use specific keywords for discovery. Quote the value if it contains colons or other YAML-special characters.
 
-- Good: `Search, lint, and rewrite code structurally with ast-grep (sg). Use for any syntax-aware task: outlining a file, finding code by AST structure, enforcing constraints, or running codemods.`
+- Good: `Use GitHub CLI (gh) for GitHub repositories, issues, pull requests, actions, releases, gists, and API calls. Use when a task requires GitHub operations from the command line.`
 - Poor: `Helps with code.` (vague, no trigger)
 
 If a skill under-triggers, make the description a bit more assertive about its triggering contexts rather than adding rules to the body.
