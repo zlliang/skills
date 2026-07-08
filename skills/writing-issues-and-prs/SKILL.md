@@ -34,5 +34,4 @@ For starting structures by scenario (bug report, feature request, PR/MR, work it
 
 - Do not force the text to begin with a heading. Use headings only when they add structural clarity; a short opening sentence or paragraph can come first.
 - Use heading levels sequentially (`h2`, then `h3`, etc.); never skip levels.
-
 - Never use `h1`, and never number headings (e.g., `## About me`, not `## 1. About me`).
