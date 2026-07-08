@@ -9,7 +9,7 @@ These are examples, not fixed templates: treat them as a starting point and shap
 
 Before writing, skim the project's recent issues, PRs, and work items to learn its conventions.
 
-## Bug report (issue)
+## Bug report
 
 - Title: what failed and where, specific enough to recognize months later — e.g. `Login button does nothing on Safari 17`, not `Login broken`.
 - Summary: one or two sentences on the problem and its impact.
@@ -18,7 +18,7 @@ Before writing, skim the project's recent issues, PRs, and work items to learn i
 - Environment: OS, browser or runtime, version or commit, relevant config.
 - Evidence: logs, screenshots, stack traces, or a minimal reproduction link.
 
-## Feature request or enhancement (issue)
+## Feature request or enhancement
 
 - Title: the outcome wanted, not the mechanism.
 - Problem or motivation: the need or pain and who feels it. Lead with why.
@@ -36,7 +36,7 @@ Before writing, skim the project's recent issues, PRs, and work items to learn i
 - Breaking changes or migration: call these out separately, with upgrade steps.
 - Review guidance: where to start and what feedback you want.
 
-## Work item or user story (Jira, Linear, and similar)
+## Work item
 
 Prefer short, plain-language issues that describe a concrete task or problem with a clear outcome. Follow the team's convention.
 
