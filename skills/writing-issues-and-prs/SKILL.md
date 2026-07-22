@@ -8,7 +8,7 @@ license: MIT
 
 Whatever the platform, the writing carries the weight. Stay platform-neutral unless the user or surrounding context calls for platform-specific terms.
 
-For starting structures by scenario (bug report, feature request, PR/MR, work item, review comment), read `references/outlines.md`. Those outlines are examples, not fixed templates: treat them as a starting point and shape the writing to the actual situation — reorder, drop, add, merge, or invent sections as the case demands. Prefer a repo's or tracker's own template whenever one exists.
+For starting structures by scenario (bug report, feature request, PR/MR, work item, review comment), read [`references/outlines.md`](references/outlines.md). Those outlines are examples, not fixed templates: treat them as a starting point and shape the writing to the actual situation — reorder, drop, add, merge, or invent sections as the case demands. Prefer a repo's or tracker's own template whenever one exists.
 
 ## Writing principles
 
