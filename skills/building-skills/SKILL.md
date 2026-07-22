@@ -13,15 +13,16 @@ The goal every time: make the skill **smaller, clearer, and more useful** than b
 ## How skills load (progressive disclosure)
 
 ```diagram
-╭──────────────╮ always loaded  ╭───────────────────────────────────────╮
-│ 1. metadata  │ ─────────────▶ │ name + description (~100 tokens)      │
-╰──────────────╯                │ the only thing that decides triggering│
-╭──────────────╮ on trigger     ╰───────────────────────────────────────╯
-│ 2. SKILL.md  │ ─────────────▶ body instructions (aim < 500 lines)
-╰──────────────╯
-╭──────────────╮ as needed      ╭───────────────────────────────────────╮
-│ 3. resources │ ─────────────▶ │ scripts/, references/, assets/        │
-╰──────────────╯                ╰───────────────────────────────────────╯
+┌──────────────┐ always loaded ┌───────────────────────────────────────┐
+│ 1. metadata  │──────────────▶│ name + description (~100 tokens)      │
+└──────────────┘               │ the only input used for triggering    │
+                               └───────────────────────────────────────┘
+┌──────────────┐   on trigger  ┌───────────────────────────────────────┐
+│ 2. SKILL.md  │──────────────▶│ body instructions (aim < 500 lines)   │
+└──────────────┘               └───────────────────────────────────────┘
+┌──────────────┐   as needed   ┌───────────────────────────────────────┐
+│ 3. resources │──────────────▶│ scripts/, references/, assets/        │
+└──────────────┘               └───────────────────────────────────────┘
 ```
 
 Put each thing at the cheapest level that works: triggering cues in the description, the core workflow in the body, and bulky detail in resources the agent reads only when needed.
