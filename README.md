@@ -7,7 +7,6 @@ A small collection of [agent skills](https://docs.anthropic.com/en/docs/claude-c
 | Skill | Description |
 | --- | --- |
 | [building-skills](skills/building-skills/SKILL.md) | Create, edit, or improve agent skills (SKILL.md). Use whenever the task is to author a new skill, refactor or shorten an existing one, fix its frontmatter or triggering description, or split it for progressive disclosure. Load this before researching other skills or writing any SKILL.md. |
-| [diagramming](skills/diagramming/SKILL.md) | Create compact monospaced Unicode diagrams. Use proactively whenever a spatial view would clarify an explanation, analysis, design, plan, comparison, or system description—especially when readers would otherwise reconstruct topology, order, branching, containment, interaction, state, data movement, dependencies, boundaries, or hierarchy from prose. |
 | [gh-cli](skills/gh-cli/SKILL.md) | Use GitHub CLI (gh) for GitHub repositories, issues, pull requests, actions, releases, gists, and API calls. Use when a task requires GitHub operations from the command line. |
 | [mcporter](skills/mcporter/SKILL.md) | Inspect and call MCP server tools from the command line with MCPorter. Use when a task needs an MCP tool (search, docs, integrations) or when checking which MCP servers and tools are available. |
 | [git-commit](skills/git-commit/SKILL.md) | Create Git commits with Conventional Commits analysis, safe staging, and concise message generation. Use when the user asks to commit changes or create a git commit. |
