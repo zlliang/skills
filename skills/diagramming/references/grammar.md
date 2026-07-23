@@ -57,6 +57,15 @@ A split followed by a merge combines the junctions as follows:
   └─────────┘
 ```
 
+## Coordinate discipline
+
+Treat every vertical run, junction, box center, and boundary crossing as a **column invariant**. **Column drift**—often an off-by-one display-cell error—occurs when a label or padding shifts an anchor on one row.
+
+- Draw the connector skeleton before adding labels. Record its anchor columns, then fit text between them without moving the anchors.
+- For every vertical run, verify that its stem, junctions, arrowheads, and target border occupy the same display-cell column on every row.
+- When adjacent rows contain multiple anchors, compare their ordered column lists rather than aligning by eye.
+- Recompute anchor columns after every label or padding edit; source-character counts are unsafe for variable-width text.
+
 ## Box sizing
 
 - Compute width in display cells, not bytes or code points.
@@ -143,7 +152,8 @@ Do not mix the ASCII fallback with Unicode borders in the same diagram. Simplify
 
 ## Final inspection
 
-1. Compare every connector and junction with **Junction topology** and **Connection recipes**.
-2. Compare every box and label with **Box sizing** and **Label alignment**.
-3. Check every glyph against **Line semantics** and **Character-family discipline**.
-4. Inspect the actual rendered width, using **Display width and CJK** or **Pure ASCII fallback** when needed.
+1. Trace every vertical run for **Coordinate discipline**; reject any column drift.
+2. Compare every connector and junction with **Junction topology** and **Connection recipes**.
+3. Compare every box and label with **Box sizing** and **Label alignment**.
+4. Check every glyph against **Line semantics** and **Character-family discipline**.
+5. Inspect the actual rendered width, using **Display width and CJK** or **Pure ASCII fallback** when needed.
