@@ -1,6 +1,6 @@
 ---
 name: mcporter
-description: Inspect and call MCP server tools from the command line with MCPorter. Use when a task needs an MCP tool (search, docs, integrations) or when checking which MCP servers and tools are available.
+description: Inspects and calls MCP server tools from the command line with MCPorter. Use when a task needs an MCP tool (search, docs, integrations) or when checking which MCP servers and tools are available.
 license: MIT
 ---
 

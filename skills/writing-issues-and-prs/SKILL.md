@@ -1,6 +1,6 @@
 ---
 name: writing-issues-and-prs
-description: Write, edit, review, or improve concise titles, bodies, and comments for issues, pull requests, and merge requests on GitHub and GitLab, and for work items (tickets, stories, tasks, epics) on Jira, Linear, and similar issue and project trackers.
+description: Writes, edits, reviews, or improves concise titles, bodies, and comments for issues, pull requests, and merge requests on GitHub and GitLab, and for work items (tickets, stories, tasks, epics) on Jira, Linear, and similar issue and project trackers.
 license: MIT
 ---
 

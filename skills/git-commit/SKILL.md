@@ -1,6 +1,6 @@
 ---
 name: git-commit
-description: Create Git commits with Conventional Commits analysis, safe staging, and concise message generation. Use when the user asks to commit changes or create a git commit.
+description: Creates Git commits with Conventional Commits analysis, safe staging, and concise message generation. Use when the user asks to commit changes or create a git commit.
 license: MIT
 ---
 

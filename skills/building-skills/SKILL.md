@@ -1,6 +1,6 @@
 ---
 name: building-skills
-description: Create, edit, or improve agent skills (SKILL.md). Use whenever the task is to author a new skill, refactor or shorten an existing one, fix its frontmatter or triggering description, or split it for progressive disclosure. Load this before researching other skills or writing any SKILL.md.
+description: Creates, edits, or improves agent skills (SKILL.md). Use whenever the task is to author a new skill, refactor or shorten an existing one, fix its frontmatter or triggering description, or split it for progressive disclosure. Load this before researching other skills or writing any SKILL.md.
 license: MIT
 ---
 
@@ -53,9 +53,9 @@ Either way keep it short and hyphenated, and avoid vague names like `helper`, `u
 
 ### Description — the trigger
 
-This is the only text the agent sees when deciding to use the skill, so it carries all the "when to use" information; never put that in the body. Write it in third person, state **what** the skill does and the concrete **contexts/phrases** that should invoke it, and use specific keywords for discovery. Quote the value if it contains colons or other YAML-special characters.
+This is the only text the agent sees when deciding to use the skill, so it carries all the "when to use" information; never put that in the body. State **what** the skill does and the concrete **contexts/phrases** that should invoke it, and use specific keywords for discovery. When a capability summary starts with a verb, use third-person singular; use the imperative mood for instructions to the agent, including when to load the skill. Quote the value if it contains colons or other YAML-special characters.
 
-- Good: `Use GitHub CLI (gh) for GitHub repositories, issues, pull requests, actions, releases, gists, and API calls. Use when a task requires GitHub operations from the command line.`
+- Good: `Uses GitHub CLI (gh) for GitHub repositories, issues, pull requests, actions, releases, gists, and API calls. Use when a task requires GitHub operations from the command line.`
 - Poor: `Helps with code.` (vague, no trigger)
 
 If a skill under-triggers, make the description a bit more assertive about its triggering contexts rather than adding rules to the body.
