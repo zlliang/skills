@@ -78,21 +78,11 @@ skill-name/
 └── assets/       # Files used in output (templates, icons, fonts)
 ```
 
-- **scripts/** — executable tools for repeated or deterministic work
+- **scripts/** — when the agent would otherwise rewrite the same code each run, or when a step needs deterministic reliability. Reference with intent: "Run `scripts/validate.py` to check the frontmatter." Test scripts by actually running them.
 - **references/** — move detailed material here to keep SKILL.md lean. Reference each file from SKILL.md and say when to read it. Keep references one level deep.
 - **assets/** — resources copied or used in the output, not loaded into context.
 
 Do **not** add `README.md`, `CHANGELOG.md`, install guides, or notes about how the skill was made. A skill contains only what the agent needs to do the job.
-
-### Scripts
-
-Prefer TypeScript with Bun for bundled scripts. Start executable scripts with:
-
-```ts
-#!/usr/bin/env -S bun --install=fallback
-```
-
-Set the executable bit (`chmod +x scripts/example.ts`), reference scripts with intent, and test them through their executable entrypoint. Treat scripts as maintained tools, not throwaway snippets: give them clear logic, readable structure, and architecture proportional to the task. Keep them simple and concise; prefer native APIs and direct control flow over unnecessary dependencies, abstractions, and defensive checks beyond trust boundaries.
 
 ## Workflow
 
