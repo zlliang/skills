@@ -46,7 +46,7 @@ Most skills need nothing beyond `name`, `description`, and `license`. Don't add 
 
 Pick the form from what the skill is about:
 
-- **A specific tool** → name it after the tool: `agent-browser`, `gh-cli`, `mcporter`. Namespace by tool when it sharpens triggering (`gh-address-comments`).
+- **A specific tool** → name it after the tool: `gh-cli`, `sourcegraph-cli`, `miro-mcp`. Namespace by tool when it sharpens triggering (`gh-address-comments`).
 - **A repeatable task, workflow, or broad action** → use the gerund form (verb + -ing): `building-skills`, `writing-issues-and-prs`, `managing-deployments`.
 
 Either way keep it short and hyphenated, and avoid vague names like `helper`, `utils`, `tools`.
