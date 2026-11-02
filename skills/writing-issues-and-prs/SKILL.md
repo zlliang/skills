@@ -4,7 +4,7 @@ description: Writes, edits, reviews, or improves concise titles, bodies, and com
 license: MIT
 ---
 
-# Writing Issues and PRs
+# Writing issues and PRs
 
 Whatever the platform, the writing carries the weight. Stay platform-neutral unless the user or surrounding context calls for platform-specific terms.
 

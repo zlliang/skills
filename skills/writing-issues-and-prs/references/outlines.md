@@ -1,4 +1,4 @@
-# Scenario Outlines
+# Scenario outlines
 
 Starting points for common writing scenarios.
 

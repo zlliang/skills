@@ -4,7 +4,7 @@ description: Creates, edits, or improves agent skills (SKILL.md). Use whenever t
 license: MIT
 ---
 
-# Building Skills
+# Building skills
 
 An [agent skill](https://agentskills.io/) is a folder with a `SKILL.md` file that teaches an agent a task on demand. The format is an open standard ([spec](https://agentskills.io/specification)) supported across many agents, so write skills that are portable, not tied to one product.
 
