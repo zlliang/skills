@@ -68,6 +68,16 @@ If a skill under-triggers, make the description a bit more assertive about its t
 - **Generalize, don't overfit.** The skill must work across many future prompts, not just the example in front of you. Prefer durable patterns over special-casing.
 - **Write imperatively.** Direct instructions to the agent ("Run X", "Read Y first"), not narration.
 
+## Formatting rules
+
+- Keep formatting consistent within the same response.
+- Insert spaces between English words and CJK characters.
+- Use heading levels sequentially (`h2`, then `h3`, etc.); never skip levels.
+- Use `- ` (hyphen plus space) for unordered list items; never use `* ` or `+ `.
+- Use `_italics_` for italics and `**bold**` for bold.
+- For list items, omit the trailing period when all items are fragments; if any item is a complete sentence, end every item with a period.
+- Use "Title Case" for top-level headings (e.g., `h1`), typically only once in a document, and "Sentence case" for section headings (capitalize the first word only).
+
 ## Anatomy
 
 ```
