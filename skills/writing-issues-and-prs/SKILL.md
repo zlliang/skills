@@ -27,7 +27,7 @@ For starting structures by scenario (bug report, feature request, PR/MR, work it
 
 ### Titles
 
-- Issue and work item titles use "Sentence case" (capitalize the first word only).
+- Issue and work item titles use "Sentence case" (capitalize only the first word and proper nouns).
 - Pull request and merge request titles use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) format, following the `git-commit` skill: `<type>[optional scope]: <description>`.
 
 ### Body headings

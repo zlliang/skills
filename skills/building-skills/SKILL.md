@@ -76,7 +76,7 @@ If a skill under-triggers, make the description a bit more assertive about its t
 - Use `- ` (hyphen plus space) for unordered list items; never use `* ` or `+ `.
 - Use `_italics_` for italics and `**bold**` for bold.
 - For list items, omit the trailing period when all items are fragments; if any item is a complete sentence, end every item with a period.
-- Use "Title Case" for top-level headings (e.g., `h1`), typically only once in a document, and "Sentence case" for section headings (capitalize the first word only).
+- Use "Title Case" for top-level headings (e.g., `h1`), typically only once in a document, and "Sentence case" for section headings (capitalize only the first word and proper nouns).
 
 ## Anatomy
 
